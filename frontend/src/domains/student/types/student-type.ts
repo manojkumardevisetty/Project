@@ -37,7 +37,7 @@ export type StudentState = {
   isLoading: boolean;
   isError: boolean;
   error?: string;
-  students: Student[] | [];
+  data: Student[] | [];
 };
 
 export type AddressInfo = z.infer<typeof AddressInfoSchema>;
@@ -73,7 +73,7 @@ export type StudentProps = z.infer<typeof StudentSchema>;
 export type StudentPropsWithId = StudentProps & { id: number };
 export type GetStudentDetailProps = StudentPropsWithId & { reporterName: string };
 export type StudentData = {
-  students: UserAccountBasicProps[];
+  data: UserAccountBasicProps[];
 };
 
 export type StudentDetail = {

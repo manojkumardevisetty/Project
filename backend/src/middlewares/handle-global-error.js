@@ -1,4 +1,4 @@
-const { ApiError } = require("../utils");
+const { ApiError } = require('../utils');
 
 const handleGlobalError = (err, req, res, next) => {
     console.error(err);
@@ -6,7 +6,7 @@ const handleGlobalError = (err, req, res, next) => {
         return res.status(err.statusCode).json({ error: err.message });
     }
 
-    return res.status(500).json({ error: "Internal server error" });
-}
+    return res.status(500).json({ error: 'Internal server error' });
+};
 
 module.exports = { handleGlobalError };

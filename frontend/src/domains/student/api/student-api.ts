@@ -19,13 +19,13 @@ export const studentApi = api.injectEndpoints({
         return `/students${queryString}`;
       },
       providesTags: (result) =>
-        result?.students?.map(({ id }) => {
+        result?.data?.map(({ id }) => {
           return { type: Tag.STUDENTS, id };
         }) || [{ type: Tag.STUDENTS }]
     }),
     getStudentDetail: builder.query<GetStudentDetailProps, string | undefined>({
       query: (id) => (id ? `/students/${id}` : `/account/me`),
-      providesTags: (result) => (result ? [{ type: Tag.STUDENTS, id: result.id }] : [])
+      providesTags: (result) => (result ? [{ type: Tag.STUDENTS, id: result.id }] : []),
     }),
     reviewStudentStatus: builder.mutation<{ message: string }, ReviewStudentStatusRequest>({
       query: ({ id, status }) => ({

@@ -14,6 +14,10 @@ type StudentProfileProps = {
 
 export const StudentProfile: React.FC<StudentProfileProps> = ({ id }) => {
   const student = useGetStudentDetail(id);
+  console.log(student)
+  if (!student?.data) {
+    return <div>Loading...</div>;
+  }
   const {
     name,
     email,
@@ -35,7 +39,7 @@ export const StudentProfile: React.FC<StudentProfileProps> = ({ id }) => {
     relationOfGuardian,
     systemAccess,
     reporterName
-  } = student;
+  } = student.data;
 
   return (
     <Grid2 container spacing={3}>
